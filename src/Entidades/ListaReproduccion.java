@@ -5,13 +5,25 @@
  */
 package Entidades;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 /**
  *
  * @author Mauricio
  */
-public class ListaReproduccion {
+@Entity
+@Table(name = "listareproduccion")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class ListaReproduccion implements Serializable{
     
+    @Column(name = "listareproduccion")
     private String nombreLista;
-    private String imagenListaReproduccion;
+    @Column(name = "portada")
+    private String portada;
         
 }

@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,6 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "artista")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Artista extends Usuario {
     
     
@@ -27,6 +31,7 @@ public class Artista extends Usuario {
     private String biografia;
     
     /* Pensar como se guarda en la BD */
+    @OneToMany(mappedBy = "nickname")
     private List<String> listaAlbums; 
 
     //Constructor por defecto
